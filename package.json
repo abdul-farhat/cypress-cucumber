@@ -1,0 +1,20 @@
+{
+  "name": "cypress-cucumber",
+  "version": "1.0.0",
+  "description": "cypress with cucumber",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open:local": "CYPRESS_ENV=local npx cypress open",
+    "cypress:open:dev": "CYPRESS_ENV=dev npx cypress open"
+  },
+  "author": "Abdul",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^13.10.0",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.21.4",
+    "mongodb": "^6.6.2"
+  }
+}
