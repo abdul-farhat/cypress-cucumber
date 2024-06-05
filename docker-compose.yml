@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mongo:
     image: mongo:latest
@@ -9,3 +7,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+  faker:
+    image: dotronglong/faker:stable
+    volumes:
+      - ./mocks:/app/mocks
+    ports:
+      - "3030:3030"

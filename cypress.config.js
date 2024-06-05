@@ -5,6 +5,7 @@ const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
 const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
 const mongodbPlugin = require('./cypress/plugins/mongodb');
+const axiosPlugin = require('./cypress/plugins/axios');
 const dotenv = require('dotenv');
 const path = require('path');
 
@@ -35,8 +36,10 @@ module.exports = defineConfig({
         };
       }
 
-      // Register MongoDB tasks
+      // Register tasks
       mongodbPlugin(on);
+
+      axiosPlugin(on);
 
       return config;
     },

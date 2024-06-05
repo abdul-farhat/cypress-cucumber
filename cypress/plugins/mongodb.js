@@ -26,8 +26,32 @@ async function addRecord({ url, dbName, collectionName, record }) {
   }
 }
 
+async function clearCollection({ url, dbName, collectionName }) {
+  const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
+    const result = await collection.deleteMany({});
+
+    if (result.deletedCount === 0) {
+      console.warn(`No documents found in collection ${collectionName}`);
+    }
+
+    return { deletedCount: result.deletedCount };
+    
+  } catch (error) {
+    console.error('Error clearing collection:', error);
+    throw error;
+  } finally {
+    await client.close();
+  }
+}
+
 module.exports = (on) => {
   on('task', {
-    addRecord
+    addRecord,
+    clearCollection
   });
 };
