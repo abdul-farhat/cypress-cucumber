@@ -1,6 +1,6 @@
-# Cypress-Cucumber with MongoDB Setup
+# Cypress with Cucumber
 
-This repository demonstrates how to set up Cypress with Cucumber for end-to-end testing, including integration with MongoDB using Docker Compose.
+This repository demonstrates how to set up Cypress with Cucumber for end-to-end testing, including integration with MongoDB and Mocks via Faker.
 
 ## Prerequisites
 
