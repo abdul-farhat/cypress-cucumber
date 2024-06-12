@@ -11,6 +11,7 @@ const path = require('path');
 
 module.exports = defineConfig({
   e2e: {
+    baseUrl: 'https://www.bbc.com',
     specPattern: 'cypress/e2e/**/*.feature',
     supportFile: 'cypress/support/index.js',
     async setupNodeEvents(on, config) {
@@ -34,6 +35,11 @@ module.exports = defineConfig({
           ...config.env,
           ...envConfig,
         };
+      }
+
+      // Update baseUrl if TEST_URL is set in the environment variables
+      if (config.env.TEST_URL) {
+        config.baseUrl = config.env.TEST_URL;
       }
 
       // Register tasks
