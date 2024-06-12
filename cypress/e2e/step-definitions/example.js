@@ -21,7 +21,7 @@ Given('a clean database', () => {
 });
 
 Given('the user is on the homepage', () => {
-  cy.visit('https://www.google.com');
+  cy.visit('/');
 });
 
 When('the user clicks the {string} button', (button) => {
